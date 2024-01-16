@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.victormsti";
+option java_multiple_files = true;
+
+service NotificationService {
+    rpc SendNotifications(NotificationRequest) returns (stream NotificationResponse);
+}
+
+message NotificationRequest {
+    string clientId = 1;
+}
+
+message NotificationResponse {
+    string notification = 1;
+}

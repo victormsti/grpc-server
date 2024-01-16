@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.victormsti";
+option java_multiple_files = true;
+
+package com.victormsti;
+
+service FileUploadService {
+    rpc UploadFile(stream FileChunk) returns (UploadStatus);
+}
+
+message FileChunk {
+    bytes chunk_data = 1;
+}
+
+message UploadStatus {
+    bool success = 1;
+    string message = 2;
+}
